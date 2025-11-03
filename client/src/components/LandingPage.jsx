@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { Dialog, DialogPanel } from "@headlessui/react";
 import { ArrowRight, BracesIcon, MoveLeft, MoveRight, X } from "lucide-react";
+import { motion } from 'framer-motion';
 import Navbar from "../components/Navbar";
 
 const navigation = [
@@ -11,6 +12,18 @@ const navigation = [
 ];
 
 export default function LandingPage() {
+    const containerVariants = {
+        hidden: {},
+        visible: { transition: { staggerChildren: 0.2 } },
+    };
+
+    const fadeUp = {
+        hidden: { opacity: 0, y: 40 },
+        visible: { opacity: 1, y: 0, transition: { duration: 0.6, ease: 'easeOut' } },
+    };
+
+    const subtle = { scale: 1, transition: { duration: 0.15 } };
+
     return (
         <div className="">
             <header className="absolute inset-x-0 top-0 z-50">
@@ -50,31 +63,53 @@ export default function LandingPage() {
                             </a>
                         </div>
                     </div>
-                    <div className="text-center">
-                        <h1 className="text-4xl md:text-6xl font-semibold tracking-tight text-balance text-light-primary-text dark:text-dark-primary-text">
+                    <motion.div
+                        className="text-center"
+                        variants={containerVariants}
+                        initial="hidden"
+                        animate="visible"
+                    >
+                        <motion.h1
+                            variants={fadeUp}
+                            className="text-4xl md:text-6xl font-semibold tracking-tight text-balance text-light-primary-text dark:text-dark-primary-text"
+                        >
                             <span className="text-light-primary dark:text-dark-primary">
                                 AI-powered
                             </span>{" "}
                             guidance for fever sufferers
-                        </h1>
-                        <p className="mt-8 text-sm md:text-lg text-pretty text-light-secondary-text dark:text-dark-secondary-text">
+                        </motion.h1>
+
+                        <motion.p
+                            variants={fadeUp}
+                            className="mt-8 text-sm md:text-lg text-pretty text-light-secondary-text dark:text-dark-secondary-text"
+                        >
                             Personalized advice and triage driven by AI and
                             community-shared symptom data. Learn, contribute,
                             and get timely support.
-                        </p>
-                        <div className="mt-10 flex items-center justify-center gap-x-6">
-                            <a
+                        </motion.p>
+
+                        <motion.div
+                            variants={fadeUp}
+                            className="mt-10 flex items-center justify-center gap-x-6"
+                        >
+                            <motion.a
                                 href="#"
-                                className="rounded-md bg-light-primary dark:bg-dark-primary px-3.5 py-2.5 text-sm font-semibold text-dark-primary-text shadow-xs hover:bg-light-primary-hover dark:hover:bg-dark-primary-hover focus-visible:outline-2 focus-visible:outline-offset-2">
+                                whileHover={{ scale: 1.03 }}
+                                whileTap={{ scale: 0.98 }}
+                                className="rounded-md bg-light-primary dark:bg-dark-primary px-3.5 py-2.5 text-sm font-semibold text-dark-primary-text shadow-xs hover:bg-light-primary-hover dark:hover:bg-dark-primary-hover focus-visible:outline-2 focus-visible:outline-offset-2"
+                            >
                                 Get started
-                            </a>
-                            <a
+                            </motion.a>
+
+                            <motion.a
                                 href="#"
-                                className="text-sm/6 font-semibold text-light-primary-text dark:text-dark-primary-text">
+                                whileHover={{ x: 4 }}
+                                className="text-sm/6 font-semibold text-light-primary-text dark:text-dark-primary-text"
+                            >
                                 Learn more <span aria-hidden="true">→</span>
-                            </a>
-                        </div>
-                    </div>
+                            </motion.a>
+                        </motion.div>
+                    </motion.div>
                 </div>
             </div>{" "}
         </div>

@@ -1,5 +1,21 @@
 import React from "react";
 import { ShieldAlert, Brain, HeartPulse, Scale } from "lucide-react";
+import { motion } from 'framer-motion';
+
+const containerVariants = {
+    hidden: {},
+    visible: { transition: { staggerChildren: 0.2 } },
+};
+
+const fadeUp = {
+    hidden: { opacity: 0, y: 8 },
+    visible: { opacity: 1, y: 0, transition: { duration: 0.5, ease: 'easeOut' } },
+};
+
+const cardVariant = {
+    hidden: { opacity: 0, scale: 0.98 },
+    visible: { opacity: 1, scale: 1, transition: { duration: 0.5, ease: 'easeOut' } },
+};
 
 const disclaimers = [
     {
@@ -48,11 +64,13 @@ const DisclaimerGuidelines = () => {
                 </div>
 
                 {/* Disclaimers Grid */}
-                <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mb-6">
+                <motion.div className="grid grid-cols-1 md:grid-cols-3 gap-4 mb-6" variants={containerVariants} initial="hidden" whileInView="visible" viewport={{ once: true, amount: 0.2 }}>
                     {disclaimers.map((item, index) => (
-                        <div
+                        <motion.div
                             key={index}
-                            className="relative p-6 rounded-2xl bg-light-surface dark:bg-dark-surface transition-all duration-300 hover:shadow-lg">
+                            className="relative p-6 rounded-2xl bg-light-surface dark:bg-dark-surface transition-all duration-300 hover:shadow-lg"
+                            variants={cardVariant}
+                        >
                             <div className="flex items-center gap-4 mb-4">
                                 <div className="p-3 rounded-xl bg-light-primary/10 dark:bg-dark-primary/10">
                                     <item.icon className="h-6 w-6 text-light-primary dark:text-dark-primary" />
@@ -64,28 +82,34 @@ const DisclaimerGuidelines = () => {
                             <p className="text-light-secondary-text dark:text-dark-secondary-text">
                                 {item.description}
                             </p>
-                        </div>
+                        </motion.div>
                     ))}
-                </div>
+                </motion.div>
 
                 {/* Guidelines Section */}
-                <div className="relative rounded-2xl bg-gradient-to-br from-light-secondary/20 via-light-surface/50 to-light-secondary/10 dark:from-dark-secondary/30 dark:via-dark-surface/50 dark:to-dark-secondary/10 p-8 backdrop-blur-xl">
+                <motion.div
+                    className="relative rounded-2xl bg-gradient-to-br from-light-secondary/20 via-light-surface/50 to-light-secondary/10 dark:from-dark-secondary/30 dark:via-dark-surface/50 dark:to-dark-secondary/10 p-8 backdrop-blur-xl"
+                    variants={containerVariants}
+                    initial="hidden"
+                    whileInView="visible"
+                    viewport={{ once: true, amount: 0.25 }}
+                >
                     <h3 className="text-2xl font-semibold text-light-primary-text dark:text-dark-primary-text mb-6">
                         Usage Guidelines
                     </h3>
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                         {guidelines.map((guideline, index) => (
-                            <div key={index} className="flex items-start gap-3">
+                            <motion.div key={index} className="flex items-start gap-3" variants={fadeUp}>
                                 <div className="mt-1 flex h-5 w-5 flex-none items-center justify-center rounded-full bg-light-primary/10 dark:bg-dark-primary/10">
                                     <div className="h-2.5 w-2.5 rounded-full bg-light-primary dark:bg-dark-primary" />
                                 </div>
                                 <span className="text-light-secondary-text dark:text-dark-secondary-text">
                                     {guideline}
                                 </span>
-                            </div>
+                            </motion.div>
                         ))}
                     </div>
-                </div>
+                </motion.div>
             </div>
         </div>
     );

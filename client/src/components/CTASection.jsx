@@ -3,7 +3,7 @@ import React from "react";
 const CTASection = () => {
     return (
         <section className="py-8 mb-6 bg-light-primary dark:bg-dark-primary">
-            <div className="mx-auto max-w-7xl px-6">
+            <div className="mx-auto max-w-6xl px-6">
                 <h3 className="text-4xl font-semibold text-white">
                    Instant fever support. <br />
                    Start in seconds.

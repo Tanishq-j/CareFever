@@ -103,6 +103,7 @@ export default function Navbar() {
             <nav className="mx-auto flex max-w-7xl items-center justify-between py-4 px-6 lg:px-8">
                 <div className="flex lg:flex-1">
                     <motion.a
+                        className="flex items-center gap-2"
                         href="/"
                         whileHover={{ scale: 1.05 }}
                         whileTap={{ scale: 0.95 }}>
@@ -110,11 +111,14 @@ export default function Navbar() {
                             alt=""
                             src={
                                 !theme
-                                    ? "/logo-dark-bnw.png"
-                                    : "/logo-light-bnw.png"
+                                    ? "/logo-dark.png"
+                                    : "/logo-light.png"
                             }
                             className="h-10 w-auto"
                         />
+                        <span className="text-xl font-bold text-light-primary-text dark:text-dark-primary-text">
+                            CareFever
+                        </span>
                     </motion.a>
                 </div>
                 <div className="flex lg:hidden">
