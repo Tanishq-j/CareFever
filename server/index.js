@@ -1,18 +1,18 @@
 const express = require('express');
+const userRoutes = require('./routes/user.route');
+
+const dotenv = require('dotenv');
+dotenv.config({ path: '.env.local' });
 
 const app = express();
 
+// Middleware to parse JSON requests
 app.use(express.json());
 
-// Basic route
-app.get('/', (req, res) => {
-    res.send('Welcome to CareFever API');
-});
+// Routes
+app.use("/", userRoutes);
 
-// Define port
 const PORT = process.env.PORT || 8000;
-
-// Start server
 app.listen(PORT, () => {
     console.log(`Server is running on port ${PORT}`);
 });
