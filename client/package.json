@@ -13,6 +13,7 @@
     "@clerk/clerk-react": "^5.53.4",
     "@headlessui/react": "^2.2.9",
     "@tailwindcss/vite": "^4.1.16",
+    "@vapi-ai/web": "^2.5.0",
     "axios": "^1.13.1",
     "framer-motion": "^12.23.24",
     "lucide-react": "^0.552.0",

@@ -15,11 +15,24 @@ function App() {
             <Routes>
                 <Route path="/" element={<Homepage />} />
                 <Route path="/dashboard" element={<Dashboard />} />
-                <Route path="/check-health" element={<>
-                    <Navbar />
-                    <CheckHealth />
-                </>} />
-                <Route path="/care-ai" element={<CareAI />} />
+                <Route
+                    path="/check-health"
+                    element={
+                        <>
+                            <Navbar />
+                            <CheckHealth />
+                        </>
+                    }
+                />
+                <Route
+                    path="/care-ai"
+                    element={
+                        <>
+                            <Navbar />
+                            <CareAI />
+                        </>
+                    }
+                />
                 <Route path="/contact-us" element={<ContactUs />} />
 
                 <Route path="*" element={<ErrorPage />} />

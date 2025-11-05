@@ -23,21 +23,21 @@ const steps = [
         description:
             "Connect to our AI system that analyzes your fever symptoms and history. One input. Comprehensive analysis.",
 
-        image: "/Humans1.png",
+        image: "/smart-symptom-analysis.jpg",
     },
     {
         title: "Real-time Health Monitoring",
         description:
             "Know your fever patterns. Track what matters. No more guesswork about when to seek help.",
 
-        image: "/Humans2.png",
+        image: "/realtime-health-monitoring.jpeg",
     },
     {
         title: "Community & AI Insights",
         description:
             "Define your recovery path with AI-powered insights backed by community data. Keep your health journey informed.",
 
-        image: "/Humans3.png",
+        image: "/community-ai-insights.jpeg",
     },
 ];
 

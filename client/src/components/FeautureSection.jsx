@@ -1,5 +1,6 @@
 import { Brain, Users, LineChart } from "lucide-react";
 import { motion } from "framer-motion";
+import { useTheme } from "../context/ThemeProvider";
 
 const containerVariants = {
     hidden: {},
@@ -46,6 +47,8 @@ const features = [
 ];
 
 export default function FeatureSection() {
+    const {theme } = useTheme();
+
     return (
         <div className="overflow-hidden py-16">
             <div className="mx-auto max-w-7xl px-6 lg:px-8">
@@ -93,7 +96,7 @@ export default function FeatureSection() {
 
                     <motion.img
                         alt="Product screenshot"
-                        src="https://tailwindcss.com/plus-assets/img/component-images/dark-project-app-screenshot.png"
+                        src={theme ? "/light-feature.png" : "/dark-feature.png"}
                         width={2432}
                         height={1442}
                         variants={imageVariant}

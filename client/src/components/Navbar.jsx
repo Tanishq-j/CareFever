@@ -4,30 +4,26 @@ import {
     DialogPanel,
     Disclosure,
     DisclosureButton,
-    DisclosurePanel,
-    Popover,
-    PopoverButton,
-    PopoverGroup,
-    PopoverPanel,
+    DisclosurePanel
 } from "@headlessui/react";
+import { motion } from "framer-motion";
 import {
     ChartPie,
     ChevronDown,
     CirclePlay,
     Fingerprint,
+    Grid2x2Plus,
     Menu,
     Moon,
     MousePointerClick,
     Phone,
     RefreshCw,
     Sun,
-    Grid2x2Plus,
     X,
 } from "lucide-react";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { useTheme } from "../context/ThemeProvider";
-import { motion, AnimatePresence } from "framer-motion";
 
 const products = [
     {
@@ -147,7 +143,7 @@ export default function Navbar() {
                             {...buttonAnim}>
                             CareAI
                         </motion.a>
-                        <p className="text-sm text-light-secondary dark:text-dark-secondary bg-dark-secondary/15 px-2 py-1 rounded-lg">Beta</p>
+                        <motion.p variants={navItemAnim} className="text-sm text-light-secondary dark:text-dark-secondary bg-light-secondary/15 dark:bg-dark-secondary/15 px-2 py-1 rounded-lg">Beta</motion.p>
                     </div>
                     <motion.a
                         href="/contact-us"
